@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Покупка коллекционных вещей</title>
+    <title>Продажа коллекционных вещей</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,9 +52,12 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
-            width: 300px;
+            width: 300px; /* Фиксированная ширина карточки */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .item:hover {
             transform: translateY(-5px);
@@ -69,15 +72,36 @@
             margin: 0 auto 10px; /* Центрирование и отступ снизу */
         }
         .item h3 {
-            margin: 10px 0;
+            margin: 0 0 10px;
             font-size: 1.2em;
             color: #2c3e50;
             text-align: center;
         }
-        .item p {
-            margin: 5px 0;
-            color: #666;
-            text-align: center;
+        .item .details {
+            display: flex;
+            justify-content: space-between;
+            width: 100%; /* Ширина на всю карточку */
+            align-items: center;
+        }
+        .item .price {
+            font-size: 1.1em;
+            color: #27ae60;
+            font-weight: bold;
+            white-space: nowrap; /* Цена не переносится на новую строку */
+        }
+        .item .contact-link a {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 0.9em;
+            white-space: nowrap; /* Кнопка не переносится на новую строку */
+        }
+        .item .contact-link a:hover {
+            background-color: #34495e;
         }
         footer {
             background-color: rgba(44, 62, 80, 0.9); /* Полупрозрачный фон */
@@ -90,6 +114,14 @@
             text-align: center;
             margin: 20px 0;
             font-style: italic;
+            color: #fff;
+            background-color: rgba(44, 62, 80, 0.8); /* Полупрозрачный фон */
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .update-info {
+            text-align: center;
+            margin: 20px 0;
             color: #fff;
             background-color: rgba(44, 62, 80, 0.8); /* Полупрозрачный фон */
             padding: 10px;
@@ -114,41 +146,77 @@
     <div class="container">
         <!-- Антиплагиат-текст -->
         <div class="info">
-            <p>Этот сайт был создан для удобного и стильного представления коллекционных вещей. Все товары представлены в аккуратном и структурированном виде, чтобы вы могли легко найти то, что ищете.</p>
+            <p>Этот сайт был создан для удобного и стильного представления коллекционных вещей. Все товары представлены в аккуратном и структурированном виде, чтобы вы могли легко найти то, что ищете. Создано <a href="https://vk.com/j0d3b3s" target="_blank">Alberto_Lawrence</a>.</p>
+        </div>
+
+        <!-- Информация об обновлении -->
+        <div class="update-info">
+            <p>Список товаров обновляется каждые 4 дня.</p>
+            <p>Последнее обновление: <span id="last-update">27 февраля 2025, 20:31</span></p>
         </div>
 
         <!-- Винилы -->
         <h2>Винилы</h2>
         <div class="item-list">
             <div class="item">
-                <img src="https://i.imgur.com/bhbYTpl.png" alt="Винил 'Алые Следы'">
+                <img src="https://i.imgur.com/NsHRLWT.png" alt="Винил 'Алые Следы'">
                 <h3>Винил "Алые Следы"</h3>
-                <p>Ужас на дороге.</p>
+                <div class="details">
+                    <div class="price">3.500.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <div class="item">
-                <img src="https://i.imgur.com/CxZNS1e.jpeg" alt="Винил 'Мороз'">
+                <img src="https://i.imgur.com/uDqUfHb.png" alt="Винил 'Мороз'">
                 <h3>Винил "Мороз"</h3>
-                <p>Ограниченный тираж.</p>
+                <div class="details">
+                    <div class="price">4.000.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <div class="item">
-                <img src="https://i.imgur.com/qV8Dy9o.jpeg" alt="Винил 'Эфирные Полночь'">
+                <img src="https://i.imgur.com/W97lrMG.png" alt="Винил 'Эфирные Полночь'">
                 <h3>Винил "Эфирные Полночь"</h3>
-                <p>Эксклюзивный дизайн.</p>
+                <div class="details">
+                    <div class="price">3.000.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <div class="item">
-                <img src="https://i.imgur.com/yEvDTVc.jpeg" alt="Винил 'Карбон'">
+                <img src="https://i.imgur.com/PzU85CP.png" alt="Винил 'Карбон'">
                 <h3>Винил "Карбон"</h3>
-                <p>Стильный и современный.</p>
+                <div class="details">
+                    <div class="price">2.000.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <div class="item">
-                <img src="https://i.imgur.com/VAUAGZ9.jpeg" alt="Камуфляж 'Абстракция'">
+                <img src="https://i.imgur.com/gm9arm8.png" alt="Камуфляж 'Абстракция'">
                 <h3>Камуфляж "Абстракция"</h3>
-                <p>Уникальный дизайн.</p>
+                <div class="details">
+                    <div class="price">2.000.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <div class="item">
-                <img src="https://i.imgur.com/iSLcl4N.jpeg" alt="Полоса 'Италия'">
+                <img src="https://i.imgur.com/A3nhl4L.png" alt="Полоса 'Италия'">
                 <h3>Полоса "Италия"</h3>
-                <p>Классический стиль.</p>
+                <div class="details">
+                    <div class="price">1.500.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -156,9 +224,14 @@
         <h2>Диски</h2>
         <div class="item-list">
             <div class="item">
-                <img src="https://i.imgur.com/W6AC86R.jpeg" alt="Диски 'Hayashi Racing Sakura'">
+                <img src="https://i.imgur.com/F23GJ0T.png" alt="Диски 'Hayashi Racing Sakura'">
                 <h3>Диски "Hayashi Racing Sakura"</h3>
-                <p>Спортивный стиль.</p>
+                <div class="details">
+                    <div class="price">2.000.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -166,79 +239,160 @@
         <h2>Дорожные сумки / Клатчи / Портфели / Поясные сумки / Рюкзаки / Сумочки</h2>
         <div class="item-list">
             <div class="item">
-                <img src="https://i.imgur.com/qKEHwXB.jpeg" alt="Дорожная сумка 'Fred Perry'">
+                <img src="https://i.imgur.com/sokex0j.png" alt="Дорожная сумка 'Fred Perry'">
                 <h3>Дорожная сумка "Fred Perry"</h3>
-                <p>Практичный и стильный.</p>
-            </div>
-<div class="item">
-                <img src="https://i.imgur.com/v4qXfg7.jpeg" alt="Дорожная сумка 'Fred Perry'">
-                <h3>Дорожная сумка "Fred Perry"</h3>
-                <p>Практически тоже самое, но яркий.</p>
+                <div class="details">
+                    <div class="price">750.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
+                <img src="https://i.imgur.com/VqTmZIm.png" alt="Дорожная сумка 'Fred Perry'">
+                <h3>Дорожная сумка "Fred Perry"</h3>
+                <div class="details">
+                    <div class="price">350.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://i.imgur.com/ZSAy5Tm.png" alt="Клатч 'Givenchy'">
                 <h3>Клатч "Givenchy"</h3>
-                <p>Элегантный дизайн.</p>
+                <div class="details">
+                    <div class="price">50.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
- <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
+            <div class="item">
+                <img src="https://i.imgur.com/kLBuOWb.png" alt="Клатч 'Saint Laurent'">
                 <h3>Клатч "Saint Laurent"</h3>
-                <p>Элегантный дизайн.</p>
+                <div class="details">
+                    <div class="price">50.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
- <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
-                <h3>Портфель "Church's" </h3>
-                <p>Элегантный дизайн.</p>
+            <div class="item">
+                <img src="https://i.imgur.com/ZYFARki.png" alt="Портфель 'BOSS'">
+                <h3>Портфель "BOSS"</h3>
+                <div class="details">
+                    <div class="price">149.999 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
- <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
+            <div class="item">
+                <img src="https://i.imgur.com/lnKB20N.png" alt="Портфель 'Church's'">
+                <h3>Портфель "Church's"</h3>
+                <div class="details">
+                    <div class="price">125.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://i.imgur.com/hKA1vnC.png" alt="Портфель 'Santoni'">
                 <h3>Портфель "Santoni"</h3>
-                <p>Элегантный дизайн.</p>
+                <div class="details">
+                    <div class="price">125.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
- <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
+            <div class="item">
+                <img src="https://i.imgur.com/xfPrUs6.png" alt="Поясная сумка 'Moschino'">
                 <h3>Поясная сумка "Moschino"</h3>
-                <p>Элегантный дизайн.</p>
+                <div class="details">
+                    <div class="price">75.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
- <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
-                <h3>Поясная сумка "Saint Laurent" </h3>
-                <p>Элегантный дизайн.</p>
+            <div class="item">
+                <img src="https://i.imgur.com/9Evjacy.png" alt="Поясная сумка 'Saint Laurent'">
+                <h3>Поясная сумка "Saint Laurent"</h3>
+                <div class="details">
+                    <div class="price">75.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
- <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
+            <div class="item">
+                <img src="https://i.imgur.com/GDbYWPn.png" alt="Рюкзак 'Louis Vuitton'">
                 <h3>Рюкзак "Louis Vitton"</h3>
-                <p>Элегантный дизайн.</p>
+                <div class="details">
+                    <div class="price">349.999 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
- <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
+            <div class="item">
+                <img src="https://i.imgur.com/hw8pCJQ.png" alt="Рюкзак 'Vans'">
                 <h3>Рюкзак "Vans"</h3>
-                <p>Элегантный дизайн.</p>
+                <div class="details">
+                    <div class="price">310.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
- <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
+            <div class="item">
+                <img src="https://i.imgur.com/MEpX7QN.png" alt="Рюкзак 'Vans'">
                 <h3>Рюкзак "Vans"</h3>
-                <p>Элегантный дизайн.</p>
+                <div class="details">
+                    <div class="price">300.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
- <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
+            <div class="item">
+                <img src="https://i.imgur.com/8VQ5OPx.png" alt="Сумочка 'Louis Vitton'">
                 <h3>Сумочка "Louis Vitton"</h3>
-                <p>Элегантный дизайн.</p>
+                <div class="details">
+                    <div class="price">255.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
-<div class="item">
-                <img src="https://via.placeholder.com/128" alt="Клатч 'Givenchy'">
+            <div class="item">
+                <img src="https://i.imgur.com/nS9x7hc.png" alt="Сумочка 'Louis Vitton'">
                 <h3>Сумочка "Louis Vitton"</h3>
-                <p>Элегантный дизайн.</p>
+                <div class="details">
+                    <div class="price">199.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
+            <!-- Добавьте остальные товары по аналогии -->
         </div>
 
         <!-- Кепки -->
         <h2>Кепки</h2>
         <div class="item-list">
             <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Кепка 'Eurovision 2024'">
+                <img src="https://i.imgur.com/DJbtMeE.png" alt="Кепка 'Eurovision 2024'">
                 <h3>Кепка "Eurovision 2024"</h3>
-                <p>Ограниченный выпуск.</p>
+                <div class="details">
+                    <div class="price">1.000.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -246,14 +400,24 @@
         <h2>Меховые наушники</h2>
         <div class="item-list">
             <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Меховые наушники 'Marmalato'">
+                <img src="https://i.imgur.com/C45hG2a.png" alt="Меховые наушники 'Marmalato'">
                 <h3>Меховые наушники "Marmalato"</h3>
-                <p>Тепло и стильно.</p>
+                <div class="details">
+                    <div class="price">50.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Меховые наушники 'Yves Salomon Enfant'">
+                <img src="https://i.imgur.com/X96AiUs.png" alt="Меховые наушники 'Yves Salomon Enfant'">
                 <h3>Меховые наушники "Yves Salomon Enfant"</h3>
-                <p>Детская коллекция.</p>
+                <div class="details">
+                    <div class="price">34.999 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -261,9 +425,14 @@
         <h2>Мотошлемы</h2>
         <div class="item-list">
             <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Мотошлем интеграл 'Icon'">
+                <img src="https://i.imgur.com/g2PNEUO.png" alt="Мотошлем интеграл 'Icon'">
                 <h3>Мотошлем интеграл "Icon"</h3>
-                <p>Высокое качество.</p>
+                <div class="details">
+                    <div class="price">501.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -271,14 +440,44 @@
         <h2>Рамки</h2>
         <div class="item-list">
             <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Рамка 'Sakura'">
+                <img src="https://i.imgur.com/AvpGIVn.png" alt="Рамка 'Sakura'">
                 <h3>Рамка "Sakura"</h3>
-                <p>Нежный дизайн.</p>
+                <div class="details">
+                    <div class="price">500.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Рамка 'Winter Drift Machine'">
-                <h3>Рамка "Winter Drift Machine"</h3>
-                <p>Зимняя тематика.</p>
+                <img src="https://i.imgur.com/7j2pFWv.png" alt="Рамка 'Федеральная служба безопасности'">
+                <h3>Рамка "Федеральная служба безопасности"</h3>
+                <div class="details">
+                    <div class="price">275.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://i.imgur.com/HLOCPvc.png" alt="Рамка 'Directed by Robert B. Weide'">
+                <h3>Рамка "Directed by Robert B. Weide"</h3>
+                <div class="details">
+                    <div class="price">250.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://i.imgur.com/jToa26B.png" alt="Рамка 'Зимний узор'">
+                <h3>Рамка "Зимний узор"</h3>
+                <div class="details">
+                    <div class="price">350.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <!-- Добавьте остальные товары по аналогии -->
         </div>
@@ -287,21 +486,62 @@
         <h2>Шапки</h2>
         <div class="item-list">
             <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Шапка 'Charles Jefferly Loverboy'">
+                <img src="https://i.imgur.com/pGzusNM.png" alt="Шапка 'Charles Jeffrey Loverboy'">
                 <h3>Шапка "Charles Jefferly Loverboy"</h3>
-                <p>Стильный аксессуар.</p>
+                <div class="details">
+                    <div class="price">100.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <div class="item">
-                <img src="https://via.placeholder.com/128" alt="Шапка бинни 'Palm Angels'">
+                <img src="https://i.imgur.com/irxjXVl.png" alt="Шапка 'Charles Jeffrey Loverboy'">
+                <h3>Шапка "Charles Jefferly Loverboy"</h3>
+                <div class="details">
+                    <div class="price">100.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://i.imgur.com/hCCGjLJ.png" alt="Шапка бинни 'Palm Angels'">
                 <h3>Шапка бинни "Palm Angels"</h3>
-                <p>Уличный стиль.</p>
+                <div class="details">
+                    <div class="price">70.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://i.imgur.com/fooBaTG.png" alt="Шапка бинни 'Stone Island'">
+                <h3>Шапка бинни "Stone Island"</h3>
+                <div class="details">
+                    <div class="price">99.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://i.imgur.com/jkjwDeM.png" alt="Шапка с ушками 'Дед Мороз'">
+                <h3>Шапка с ушками "Дед Мороз"</h3>
+                <div class="details">
+                    <div class="price">55.000 ₽</div>
+                    <div class="contact-link">
+                        <a href="https://vk.com/j0d3b3s" target="_blank">Связаться</a>
+                    </div>
+                </div>
             </div>
             <!-- Добавьте остальные товары по аналогии -->
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Продажа коллекционных вещей. Все права защищены. Powered by <a href="https://vk.com/j0d3b3s" target="_blank">Alberto_Lawrence</a>.</p>
+        <p>&copy; 2025 Продажа коллекционных вещей. Все права защищены. Maked by <a href="https://vk.com/j0d3b3s" target="_blank">Alberto_Lawrence</a>.</p>
+        <p>Ищу людей для создания альтернативы <a href="https://pay.gtaprovince.ru/" target="_blank">InfoPay</a>.</p>
     </footer>
 
 </body>
